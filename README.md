@@ -101,6 +101,8 @@ npm run dev
 ```
 
 ---
+
+##  📸 예시이미지 
 ![bloging](https://github.com/user-attachments/assets/31bdecc2-86f9-4087-add2-02182255bbe7)
 
 ---
