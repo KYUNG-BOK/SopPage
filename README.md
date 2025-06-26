@@ -80,25 +80,30 @@ pdfjs-dist@2.16.105 버전을 고정한 이유:<br>
 
 ---
 
-## 🧾 핵심 코드 (`SopPage.tsx`)
+## 🧾 핵심 코드_주석포함 (`SopPage.tsx`)
 
 ```tsx
-import React from 'react';
-import { Worker, Viewer } from '@react-pdf-viewer/core';
-import { defaultLayoutPlugin } from '@react-pdf-viewer/default-layout';
-
-import '@react-pdf-viewer/core/lib/styles/index.css';
+import React from 'react';  // 리액트에서 화면 만들기 위한 기본 코드
+import { Worker, Viewer } from '@react-pdf-viewer/core';  // pdf파일을 볼 수 있는 도구를 가져오기
+import { defaultLayoutPlugin } from '@react-pdf-viewer/default-layout';  // 디자인도구도 가져와요
+// pdf 화면을 보기위해 꼭 필요한 css도 불러올게요/
+import '@react-pdf-viewer/core/lib/styles/index.css'; 
 import '@react-pdf-viewer/default-layout/lib/styles/index.css';
 
+//제가 만들 화면의 이름은 SopPage입니다.
 const SopPage: React.FC = () => {
+  //보기 좋게 해주는 썸네일, 버튼등을 포함한 기능을 준비해요
   const defaultLayoutPluginInstance = defaultLayoutPlugin();
-
+  // 이제 보여줄 화면을 만들어볼게요
   return (
-    <div style={{ height: '100vh', width: '100%' }}>
+    <div style={{ height: '100vh', width: '100%' }}>  // 화면 전체 크기를 보여줘야 되서 이렇게 설정할게요
+      // pdf 파일을 읽기 위해 도와주는 work라는 도구를 불러올게요.
+        백그라운드에서 pdf파일을 열어주는 도우미에요.
       <Worker workerUrl={`https://unpkg.com/pdfjs-dist@2.16.105/build/pdf.worker.min.js`}>
-        <Viewer
-          fileUrl="/assets/Semicon.pdf"
-          plugins={[defaultLayoutPluginInstance]}
+  // 실제로 pdf를 보여주는 도구에요
+    <Viewer
+          fileUrl="/assets/Semicon.pdf"      // 파일의 위치
+          plugins={[defaultLayoutPluginInstance]}    // 아까 준비한 꾸미기 기능 넣어줄게요
         />
       </Worker>
     </div>
