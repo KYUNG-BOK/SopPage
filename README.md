@@ -1,6 +1,6 @@
 # 📄 React PDF Viewer 페이지 구현
 
-이 프로젝트는 React 기반으로 **PDF 파일을 웹에서 뷰어 형태로 출력**하는 기능을 구현하여 공유합니다.  
+이 프로젝트는 React 기반으로 **PDF 파일을 웹에서 뷰어 형태로 출력**하는 기능을 구현한 예시입니다.  
 라이브러리는 `@react-pdf-viewer/core` 와 `pdfjs-dist` 를 사용하였습니다.
 
 ---
@@ -30,6 +30,18 @@ PDF를 클릭해서 다운로드하는 방식보다,
 ```bash
 npm install @react-pdf-viewer/core @react-pdf-viewer/default-layout pdfjs-dist@2.16.105 --legacy-peer-deps
 ```
+### ❗ 설치 시 주의사항
+
+--legacy-peer-deps 옵션을 사용한 이유:
+react@19 버전과 ag-grid-react, @react-pdf-viewer/* 사이에 peer dependency 충돌이 발생하여 설치 오류가 발생하였습니다.
+해당 옵션은 의존성 충돌을 무시하고 강제로 설치하게 도와줍니다.
+
+pdfjs-dist@2.16.105 버전을 고정한 이유:
+최신 버전(3.x 이상)은 @react-pdf-viewer/core와 호환되지 않아 아래와 같은 오류가 발생하였습니다.
+"The API version 'x.x.x' does not match the Worker version 'y.y.y'"
+"Invalid PDF structure"
+
+따라서 2.16.105 버전이 안정적으로 호환되며 정상적으로 실행이 됩니다.
 
 ---
 
@@ -81,7 +93,7 @@ export default SopPage;
 ## 📝 사용 방법
 
 1. `Semicon.pdf` 파일을 `public/assets` 폴더에 넣기  
-2. 위 코드가 포함된 페이지를 `/sop` 등 라우터에 연결  
+2. 위 코드가 포함된 페이지를 `/sop` 혹은 pdf뷰어가 필요한 페이지의 라우터에 연결  
 3. 아래 명령어로 실행 후 브라우저에서 확인
 
 ```bash
@@ -95,6 +107,6 @@ npm run dev
 
 ## 🎓 구현 후기
 
-> 처음으로 PDF 파일을 웹에서 렌더링해보는 경험이었고,  
+> 처음으로 PDF 파일을 웹에서 렌더링해보는 좋은 경험이었고,  
 > 라이브러리의 사용법과 PDF.js의 동작 원리를 조금씩 익힐 수 있었습니다.  
-> 추후에는 클릭 시 모달로 띄우는 방식 등 다양한 확장도 가능하려고 생각하고 있습니다.
+> 추후에는 클릭 시 모달로 띄우는 방식 등 다양한 방면으로의 확장도 생각하고 있습니다.
