@@ -25,11 +25,31 @@ PDF를 클릭해서 다운로드하는 방식보다,
 
 ---
 
+## 🔧 사용된 기술 스택
+
+| 기술 | 설명 |
+|------|------|
+| **React** + **TypeScript** | 컴포넌트 기반 UI 구성 및 타입 안정성을 제공 |
+| **@react-pdf-viewer/core** | 리액트에서 PDF 파일을 렌더링하기 위한 핵심 PDF 뷰어 라이브러리 |
+| **@react-pdf-viewer/default-layout** | 툴바, 썸네일, 페이지 넘김 등 포함된 기본 PDF 뷰어 레이아웃 |
+| **pdfjs-dist** | Mozilla의 PDF.js를 기반으로 한 PDF 렌더링 백엔드 라이브러리 |
+| **Web Worker** | PDF 렌더링을 메인 스레드와 분리하여 성능 향상 |
+| **정적 리소스 처리** | `/public/assets/` 폴더에 PDF 파일을 넣고 브라우저에서 직접 렌더링 |
+| **100% 반응형 레이아웃** | `style={{ height: '100vh', width: '100%' }}` 를 통해 전체 화면 표시 |
+
+해당 프로젝트에서는 PDF.js 최신 버전과의 호환성 문제로 인해 `pdfjs-dist@2.16.105`를 사용하였으며,  
+의존성 충돌을 해결하기 위해 `--legacy-peer-deps` 옵션을 함께 사용하였습니다.
+
+---
+
 ## 🧩 설치된 주요 라이브러리
 
 ```bash
 npm install @react-pdf-viewer/core @react-pdf-viewer/default-layout pdfjs-dist@2.16.105 --legacy-peer-deps
 ```
+
+---
+
 ### ❗ 설치 시 주의사항
 
 --legacy-peer-deps 옵션을 사용한 이유:
