@@ -52,16 +52,16 @@ npm install @react-pdf-viewer/core @react-pdf-viewer/default-layout pdfjs-dist@2
 
 ### ❗ 설치 시 주의사항
 
---legacy-peer-deps 옵션을 사용한 이유:
-react@19 버전과 ag-grid-react, @react-pdf-viewer/* 사이에 peer dependency 충돌이 발생하여 설치 오류가 발생하였습니다.
-해당 옵션은 의존성 충돌을 무시하고 강제로 설치하게 도와줍니다.
+--legacy-peer-deps 옵션을 사용한 이유:<br>
+react@19 버전과 ag-grid-react, @react-pdf-viewer/* 사이에 peer dependency 충돌이 발생하여 설치 오류가 발생하였습니다.<br>
+해당 옵션은 의존성 충돌을 무시하고 강제로 설치하게 도와줍니다.<p>
 
-pdfjs-dist@2.16.105 버전을 고정한 이유:
-최신 버전(3.x 이상)은 @react-pdf-viewer/core와 호환되지 않아 아래와 같은 오류가 발생하였습니다.
-"The API version 'x.x.x' does not match the Worker version 'y.y.y'"
-"Invalid PDF structure"
+pdfjs-dist@2.16.105 버전을 고정한 이유:<br>
+최신 버전(3.x 이상)은 @react-pdf-viewer/core와 호환되지 않아 아래와 같은 오류가 발생하였습니다.<br>
+"The API version 'x.x.x' does not match the Worker version 'y.y.y'"<br>
+"Invalid PDF structure"<p>
 
-따라서 2.16.105 버전이 안정적으로 호환되며 정상적으로 실행이 됩니다.
+따라서 2.16.105 버전이 안정적으로 호환되며 정상적으로 실행이 됩니다.<p>
 
 ---
 
